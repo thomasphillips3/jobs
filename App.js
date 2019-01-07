@@ -9,26 +9,27 @@ import DeckScreen from './screens/DeckScreen';
 import ReviewScreen from './screens/ReviewScreen';
 import SettingsScreen from './screens/SettingsScreen';
 
-export default class App extends Component {
-  render() {
-    const MainNavigator = createBottomTabNavigator({
-      welcome: { screen: WelcomeScreen },
-      auth: { screen: AuthScreen },
-      main: {
-        screen: createBottomTabNavigator({
-          map: { screen: MapScreen },
-          deck: { screen: DeckScreen },
-          review: {
-            screen: createStackNavigator({
-              review: { screen: ReviewScreen },
-              settings: { screen: SettingsScreen }
-            })
-          }
+const MainNavigator = createBottomTabNavigator({
+  welcome: { screen: WelcomeScreen },
+  auth: { screen: AuthScreen },
+  main: {
+    screen: createBottomTabNavigator({
+      map: { screen: MapScreen },
+      deck: { screen: DeckScreen },
+      review: {
+        screen: createStackNavigator({
+          review: { screen: ReviewScreen },
+          settings: { screen: SettingsScreen }
         })
       }
-    });
+    })
+  }
+});
 
-    const AppContainer = createAppContainer(MainNavigator);
+const AppContainer = createAppContainer(MainNavigator);
+
+export default class App extends Component {
+  render() {
 
     return (
         <AppContainer />
