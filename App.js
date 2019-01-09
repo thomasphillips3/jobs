@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { createAppContainer, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
 
+import store from './store';
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import MapScreen from './screens/MapScreen';
@@ -32,7 +34,9 @@ export default class App extends Component {
   render() {
 
     return (
+      <Provider store={store}>
         <AppContainer />
+      </Provider>
     );
   }
 }
