@@ -12,8 +12,14 @@ import ReviewScreen from './screens/ReviewScreen';
 import SettingsScreen from './screens/SettingsScreen';
 
 const MainNavigator = createBottomTabNavigator({
-  welcome: { screen: WelcomeScreen },
-  auth: { screen: AuthScreen },
+  welcome: {
+    screen: WelcomeScreen,
+    navigationOptions: { tabBarVisible: false }
+  },
+  auth: { 
+    screen: AuthScreen,
+    navigationOptions: { tabBarVisible: false }
+   },
   main: {
     screen: createBottomTabNavigator({
       map: { screen: MapScreen },
@@ -24,7 +30,8 @@ const MainNavigator = createBottomTabNavigator({
           settings: { screen: SettingsScreen }
         })
       }
-    })
+    }),
+    navigationOptions: { tabBarVisible: false }
   }
 });
 
